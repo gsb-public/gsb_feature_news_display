@@ -373,6 +373,8 @@ function gsb_feature_news_display_views_default_views() {
 
   /* Display: News by criteria */
   $handler = $view->new_display('panel_pane', 'News by criteria', 'panel_pane_1');
+  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 'use_pager';
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
   $handler->display->display_options['allow']['offset'] = 0;

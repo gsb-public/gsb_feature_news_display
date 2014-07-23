@@ -37,6 +37,11 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 0;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_icon' => 'field_icon',
+    'title' => 'title',
+  );
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   /* Field: Content: Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -62,9 +67,9 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
   $handler->display->display_options['fields']['field_icon']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_icon']['alter']['text'] = '<span class="media-icon [field_icon-value]"><span class="element-invisible">[field_icon-value]</span></span>';
+  $handler->display->display_options['fields']['field_icon']['alter']['text'] = '<span class="media-icon [field_icon]"><span class="element-invisible">[field_icon]</span></span>';
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_icon']['type'] = 'list_key';
+  $handler->display->display_options['fields']['field_icon']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_icon']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -79,6 +84,10 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'field-title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Field: Dek */
   $handler->display->display_options['fields']['field_editorial_summary']['id'] = 'field_editorial_summary';
   $handler->display->display_options['fields']['field_editorial_summary']['table'] = 'field_data_field_editorial_summary';
@@ -98,10 +107,8 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['fields']['field_key_taxonomy']['field'] = 'field_key_taxonomy';
   $handler->display->display_options['fields']['field_key_taxonomy']['label'] = '';
   $handler->display->display_options['fields']['field_key_taxonomy']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_key_taxonomy']['type'] = 'entityreference_entity_view';
   $handler->display->display_options['fields']['field_key_taxonomy']['settings'] = array(
-    'view_mode' => 'default',
-    'links' => 0,
+    'link' => 1,
     'conditions' => array(
       0 => array(
         'condition' => '',
@@ -109,7 +116,6 @@ function gsb_feature_news_display_views_default_views() {
     ),
   );
   $handler->display->display_options['fields']['field_key_taxonomy']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_key_taxonomy']['separator'] = ',';
   /* Sort criterion: Content: Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';

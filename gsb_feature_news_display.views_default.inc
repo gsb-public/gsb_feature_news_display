@@ -11,6 +11,145 @@ function gsb_feature_news_display_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'gsb_announcement_school_listing';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'GSB Announcement School Listing';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Explore More';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Publication Date */
+  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
+  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date']['settings'] = array(
+    'format_type' => 'panopoly_day',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Media Format */
+  $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
+  $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
+  $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
+  $handler->display->display_options['fields']['field_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_icon']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Dek */
+  $handler->display->display_options['fields']['field_editorial_summary']['id'] = 'field_editorial_summary';
+  $handler->display->display_options['fields']['field_editorial_summary']['table'] = 'field_data_field_editorial_summary';
+  $handler->display->display_options['fields']['field_editorial_summary']['field'] = 'field_editorial_summary';
+  $handler->display->display_options['fields']['field_editorial_summary']['label'] = '';
+  $handler->display->display_options['fields']['field_editorial_summary']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_editorial_summary']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Key Image */
+  $handler->display->display_options['fields']['field_image_key_image']['id'] = 'field_image_key_image';
+  $handler->display->display_options['fields']['field_image_key_image']['table'] = 'field_data_field_image_key_image';
+  $handler->display->display_options['fields']['field_image_key_image']['field'] = 'field_image_key_image';
+  $handler->display->display_options['fields']['field_image_key_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image_key_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image_key_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image_key_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Sort criterion: Content: Publication Date (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'announcement' => 'announcement',
+    'school_story' => 'school_story',
+  );
+
+  /* Display: EVA Field */
+  $handler = $view->new_display('entity_view', 'EVA Field', 'entity_view_1');
+  $handler->display->display_options['entity_type'] = 'node';
+  $handler->display->display_options['bundles'] = array(
+    0 => 'announcement',
+    1 => 'school_story',
+  );
+  $handler->display->display_options['show_title'] = 1;
+  $export['gsb_announcement_school_listing'] = $view;
+
+  $view = new view();
   $view->name = 'news_by_criteria';
   $view->description = '';
   $view->tag = 'default';

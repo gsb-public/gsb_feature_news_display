@@ -5,3 +5,60 @@
  */
 
 include_once 'gsb_feature_news_display.features.inc';
+
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function gsb_feature_news_display_field_extra_fields() {
+
+  $content_types = array('idea_story', 'announcement', 'school_story');
+  foreach ($content_types as $content_type) {
+    $extra['node'][$content_type]['display']['gsb_media_inquiries'] = array(
+      'label' => t('Media Inquiries'),
+      'description' => t('Display media inquiries text.'),
+      'weight' => 30,
+    );
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function gsb_feature_news_display_node_view($node, $view_mode, $langcode) {
+  // If this field is not configured for this view mode, skip it.
+  $fields = field_extra_fields_get_display('node', $node->type, $view_mode);
+  if (empty($fields['gsb_media_inquiries']['visible'])) {
+    return;
+  }
+
+  $media_inquiries_text = variable_get('gsb_media_inquiries_text');
+
+  $node->content['gsb_media_inquiries']['#markup'] = filter_xss($media_inquiries_text);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function gsb_feature_news_display_form_alter(&$form, &$form_state) {
+  if ($form['#form_id'] == 'gsb_feature_idea_story_display_config_top_stories') {
+    $form['gsb_media_inquiries_text'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Media inquiries text'),
+      '#default_value' => variable_get('gsb_media_inquiries_text'),
+      '#weight' => -9,
+    );
+
+    $form['#submit'][] = 'gsb_feature_news_display_settings_form_submit';
+  }
+}
+
+/**
+ * Submit handler for gsb_feature_idea_story_display_config_top_stories.
+ *  - Save media inquiries text in variable.
+ */
+function gsb_feature_news_display_settings_form_submit($form, &$form_state) {
+  variable_set('gsb_media_inquiries_text', $form_state['values']['gsb_media_inquiries_text']);
+}

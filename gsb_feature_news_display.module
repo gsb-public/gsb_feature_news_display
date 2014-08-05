@@ -34,9 +34,17 @@ function gsb_feature_news_display_node_view($node, $view_mode, $langcode) {
     return;
   }
 
-  $media_inquiries_text = variable_get('gsb_media_inquiries_text');
+  $media_inquiries_text = variable_get('gsb_media_inquiries_text', '');
 
-  $node->content['gsb_media_inquiries']['#markup'] = filter_xss($media_inquiries_text);
+  $node->content['gsb_media_inquiries'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array(
+        'media-inquiries',
+      ),
+    ),
+    '#children' => filter_xss($media_inquiries_text),
+  );
 }
 
 /**

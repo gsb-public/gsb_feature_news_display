@@ -15,5 +15,6 @@ features[features_api][] = api:2
 features[views_view][] = gsb_announcement_school_listing
 features[views_view][] = gsb_in_the_media_listing
 features[views_view][] = gsb_faculty_insights_listing
+features[views_view][] = gsb_announcements_school_stories_listing
 features[views_view][] = news_by_criteria
 features_exclude[dependencies][ctools] = ctools

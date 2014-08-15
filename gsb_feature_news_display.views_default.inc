@@ -907,5 +907,27 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
 
+  /* Display: News by criteria */
+  $handler = $view->new_display('panel_pane', 'News by criteria', 'panel_pane_1');
+  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 'fields_override';
+  $handler->display->display_options['exposed_form_overrides'] = array(
+   'type' => '',
+   'field_academic_area_unlimited_tid' => '',
+   'field_region_of_interest_tid' => '',
+   'field_business_insight_topic_tid' => '',
+  );
+  $export['news_by_criteria'] = $view;
+
   return $export;
 }

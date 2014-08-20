@@ -273,7 +273,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Listing */
-  $handler = $view->new_display('panel_pane', 'Listing', 'announcements_school_stories_listing');
+  $handler = $view->new_display('panel_pane', 'Listing', 'annssh_stories_list');
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['gsb_announcements_school_stories_listing'] = $view;

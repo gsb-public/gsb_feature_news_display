@@ -51,6 +51,7 @@ function gsb_feature_news_display_node_view($node, $view_mode, $langcode) {
  * Implements hook_form_alter().
  */
 function gsb_feature_news_display_form_alter(&$form, &$form_state) {
+
   if ($form['#form_id'] == 'gsb_feature_idea_story_display_config_top_stories') {
     $form['gsb_media_inquiries_text'] = array(
       '#type' => 'textarea',
@@ -60,6 +61,41 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
     );
 
     $form['#submit'][] = 'gsb_feature_news_display_settings_form_submit';
+  }
+
+  // Alter News by Criteria pane config form to include link field for title.
+  if ($form['#form_id'] == 'views_content_views_panes_content_type_edit_form') {
+
+    if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
+      $conf = $form_state['conf'];
+      $form['exposed']['title_link'] = array(
+        '#title' => t('Title link'),
+        '#type' => 'textfield',
+        '#default_value' => !empty($conf['title_link']) ? $conf['title_link'] : '',
+      );
+
+      $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
+    }
+  }
+}
+
+/**
+ * Submit handler for views_content_views_panes_content_type_edit_form.
+ *  - Save title link field in pane config.
+ */
+function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
+  $form_state['conf']['title_link'] = $form_state['values']['title_link'];
+}
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ *  - Alter News by Criteria content pane title to be linked to a custom URL.
+ */
+function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $args, $context) {
+  if ($content->subtype == 'news_by_criteria-panel_pane_1') {
+    if (!empty($pane->configuration['title_link'])) {
+      $content->title = l($content->title, $pane->configuration['title_link']);
+    }
   }
 }
 

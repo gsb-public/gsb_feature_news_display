@@ -307,12 +307,13 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['view_mode'] = 'news_listing';
   $handler->display->display_options['row_options']['alternating'] = 0;
   $handler->display->display_options['row_options']['grouping'] = 0;
   $handler->display->display_options['row_options']['advanced'] = 0;
   $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
-  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'node|created';
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_date|field_date_value';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'news_listing';
   /* Relationship: Content: Faculty (field_related_faculty) */
   $handler->display->display_options['relationships']['field_related_faculty_value']['id'] = 'field_related_faculty_value';
   $handler->display->display_options['relationships']['field_related_faculty_value']['table'] = 'field_data_field_related_faculty';

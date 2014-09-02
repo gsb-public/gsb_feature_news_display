@@ -603,8 +603,10 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['fields']['field_key_taxonomy']['field'] = 'field_key_taxonomy';
   $handler->display->display_options['fields']['field_key_taxonomy']['label'] = '';
   $handler->display->display_options['fields']['field_key_taxonomy']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_key_taxonomy']['type'] = 'entityreference_entity_view';
   $handler->display->display_options['fields']['field_key_taxonomy']['settings'] = array(
-    'link' => 1,
+    'view_mode' => 'insight_topics',
+    'links' => 0,
     'conditions' => array(
       0 => array(
         'condition' => '',

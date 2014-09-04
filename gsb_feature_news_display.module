@@ -71,7 +71,7 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
       // set the required * for the Type field       
       $type_title = $form['exposed']['filter-type']['#title'];
       $form['exposed']['filter-type']['#title'] = $type_title . 
-        ' <span class="form-required" title="' . t('this field is required.') . '">*</span>';
+        ' <span class="form-required" title="' . t('This field is required.') . '">*</span>';
 
       $conf = $form_state['conf'];
       $title_link_exposed = array();

@@ -875,6 +875,9 @@ function gsb_feature_news_display_views_default_views() {
 
   /* Display: News by criteria */
   $handler = $view->new_display('panel_pane', 'News by criteria', 'panel_pane_1');
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
@@ -1074,7 +1077,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['operator_id'] = 'field_business_insight_topic_tid_op';
-  $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['label'] = 'BI Topic';
+  $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['label'] = 'Additional Topic';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['operator'] = 'field_business_insight_topic_tid_op';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['identifier'] = 'field_business_insight_topic_tid';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['multiple'] = TRUE;

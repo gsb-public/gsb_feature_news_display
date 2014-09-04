@@ -67,6 +67,12 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
   if ($form['#form_id'] == 'views_content_views_panes_content_type_edit_form') {
 
     if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
+      
+      // set the required * for the Type field       
+      $type_title = $form['exposed']['filter-type']['#title'];
+      $form['exposed']['filter-type']['#title'] = $type_title . 
+        ' <span class="form-required" title="' . t('this field is required.') . '">*</span>';
+
       $conf = $form_state['conf'];
       $title_link_exposed = array();
       $title_link_exposed['title_link'] = array(
@@ -75,6 +81,7 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
         '#default_value' => !empty($conf['exposed']['title_link']) ? $conf['exposed']['title_link'] : '',
       );
       $form['exposed'] = array_merge($title_link_exposed, $form['exposed']);  
+      
       $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
     }
   }

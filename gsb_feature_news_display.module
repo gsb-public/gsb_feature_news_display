@@ -67,6 +67,12 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
   if ($form['#form_id'] == 'views_content_views_panes_content_type_edit_form') {
 
     if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
+
+      // set the nids argument field into the exposed portion of the config form
+      $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
+      $form['exposed']['arguments'] = $form['arguments'];
+      $form['exposed']['arguments']['#weight'] = -98;
+      $form['arguments']['#access'] = FALSE;
       
       // set the required * for the Type field       
       $type_title = $form['exposed']['filter-type']['#title'];
@@ -82,9 +88,18 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
       );
       $form['exposed'] = array_merge($title_link_exposed, $form['exposed']);  
       
+      $form['#validate'][] = 'gsb_news_by_criteria_pane_config_validate';
       $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
     }
   }
+}
+
+/**
+ * Validate handler for views_content_views_panes_content_type_edit_form.
+ *  - Stores the arguments nid field values in pane config.
+ */
+function gsb_news_by_criteria_pane_config_validate(&$form, &$form_state) {
+  $form_state['values']['arguments']['nid'] = $form_state['values']['exposed']['arguments']['nid'];
 }
 
 /**

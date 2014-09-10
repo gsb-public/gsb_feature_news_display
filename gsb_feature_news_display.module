@@ -66,6 +66,10 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
   // Alter News by Criteria pane config form to include link field for title.
   if ($form['#form_id'] == 'views_content_views_panes_content_type_edit_form') {
 
+    if ($form_state['view']->name == 'gsb_faculty_insights_listing' && $form_state['view']->current_display == 'faculty_insights_listing') {
+      $form['exposed']['filter-field_search_field_value']['#access'] = FALSE;
+    }
+
     if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
 
       // set the nids argument field into the exposed portion of the config form

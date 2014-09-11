@@ -1082,6 +1082,7 @@ function gsb_feature_news_display_views_default_views() {
     181 => 0,
     186 => 0,
   );
+  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['vocabulary'] = 'academic_area';
   /* Filter criterion: Content: Additional Topics (field_business_insight_topic) */
@@ -1133,6 +1134,7 @@ function gsb_feature_news_display_views_default_views() {
     181 => 0,
     186 => 0,
   );
+  $handler->display->display_options['filters']['field_business_insight_topic_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['vocabulary'] = 'business_insight_topic';
   /* Filter criterion: Content: Region of Interest (field_region_of_interest) */
@@ -1184,6 +1186,7 @@ function gsb_feature_news_display_views_default_views() {
     181 => 0,
     186 => 0,
   );
+  $handler->display->display_options['filters']['field_region_of_interest_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_region_of_interest_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['vocabulary'] = 'region_interest';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['hierarchy'] = 1;

@@ -133,3 +133,22 @@ function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $ar
 function gsb_feature_news_display_settings_form_submit($form, &$form_state) {
   variable_set('gsb_media_inquiries_text', $form_state['values']['gsb_media_inquiries_text']);
 }
+
+/**
+ * Implements hook_entity_alter().
+ */
+function gsb_feature_news_display_entity_info_alter(&$entity_info) {
+  $entity_info['fieldable_panels_pane']['bundles']['story_list_by_title'] = array(
+    'label' => t('Story List By Title'),
+    'pane category' => t('GSB panes'),
+    'pane top level' => TRUE, // set to true to make this show as a top level icon
+    'pane icon' => drupal_get_path('module', 'panopoly_widgets') . '/images/icon_text.png',
+    'admin' => array(
+      'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
+      'bundle argument' => 4,
+      // Note that this has all _ replaced with - from the bundle name.
+      'real path' => 'admin/structure/fieldable-panels-panes/manage/story-list-by-title',
+      'access arguments' => array('administer fieldable panels panes'),
+    ),
+  );
+}

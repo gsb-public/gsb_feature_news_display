@@ -243,7 +243,8 @@ function gsb_feature_news_display_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'School News';
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
@@ -252,14 +253,22 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_date' => 'field_date',
-    'field_icon' => 'field_icon',
-    'title' => 'title',
-    'field_editorial_summary' => 'field_editorial_summary',
-  );
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['view_mode'] = 'idea_story_related';
+  $handler->display->display_options['row_options']['alternating'] = 0;
+  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_date|field_date_value';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'idea_story_related';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<a href="/stanford-gsb-experience/news-history">School News</a>';
+  $handler->display->display_options['header']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Source Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
@@ -314,6 +323,17 @@ function gsb_feature_news_display_views_default_views() {
     ),
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['link_to_view'] = '0';
   $export['gsb_announcement_school_listing'] = $view;
 
   $view = new view();

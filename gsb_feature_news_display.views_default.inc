@@ -243,6 +243,7 @@ function gsb_feature_news_display_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/stanford-gsb-experience/news-history">School News</a>';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -263,12 +264,6 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'idea_story_related';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<a href="/stanford-gsb-experience/news-history">School News</a>';
-  $handler->display->display_options['header']['area']['format'] = 'gsb_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Source Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';

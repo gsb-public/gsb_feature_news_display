@@ -240,12 +240,10 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  /* Display: Homepage */
+  $handler = $view->new_display('block', 'Homepage', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = '<a href="/stanford-gsb-experience/news-history">School News</a>';
-  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
@@ -263,72 +261,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'field_data_field_date|field_date_value';
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'idea_story_related';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Source Publication Date */
-  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
-  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['label'] = '';
-  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_date']['settings'] = array(
-    'format_type' => 'panopoly_day',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
-  /* Field: Content: Media Format */
-  $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
-  $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
-  $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
-  $handler->display->display_options['fields']['field_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_icon']['settings'] = array(
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Dek */
-  $handler->display->display_options['fields']['field_editorial_summary']['id'] = 'field_editorial_summary';
-  $handler->display->display_options['fields']['field_editorial_summary']['table'] = 'field_data_field_editorial_summary';
-  $handler->display->display_options['fields']['field_editorial_summary']['field'] = 'field_editorial_summary';
-  $handler->display->display_options['fields']['field_editorial_summary']['label'] = '';
-  $handler->display->display_options['fields']['field_editorial_summary']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_editorial_summary']['settings'] = array(
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  $handler->display->display_options['allow']['use_pager'] = 0;
-  $handler->display->display_options['allow']['items_per_page'] = 0;
-  $handler->display->display_options['allow']['offset'] = 0;
-  $handler->display->display_options['allow']['link_to_view'] = 0;
-  $handler->display->display_options['allow']['more_link'] = 0;
-  $handler->display->display_options['allow']['path_override'] = 0;
-  $handler->display->display_options['allow']['title_override'] = 0;
-  $handler->display->display_options['allow']['exposed_form'] = 0;
-  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
-  $handler->display->display_options['allow']['fields_override'] = 0;
-  $handler->display->display_options['link_to_view'] = '0';
   $export['gsb_announcement_school_listing'] = $view;
 
   $view = new view();

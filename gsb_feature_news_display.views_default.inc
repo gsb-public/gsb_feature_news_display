@@ -1933,7 +1933,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
   $handler->display->display_options['filters']['field_tag_tid']['value'] = array(
-    0 => '28772',
+    0 => '28801',
   );
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
   /* Filter criterion: Content: Search field (field_search_field) */

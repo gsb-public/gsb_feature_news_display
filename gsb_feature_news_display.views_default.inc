@@ -1668,7 +1668,7 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
-  /* Filter criterion: Field: Program (field_program_single) */
+  /* Filter criterion: Fieldable panel pane: Program (field_program_single) */
   $handler->display->display_options['filters']['field_program_single_tid']['id'] = 'field_program_single_tid';
   $handler->display->display_options['filters']['field_program_single_tid']['table'] = 'field_data_field_program_single';
   $handler->display->display_options['filters']['field_program_single_tid']['field'] = 'field_program_single_tid';
@@ -1901,11 +1901,11 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'news_listing';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Content: Source Publication Date (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -1993,20 +1993,19 @@ function gsb_feature_news_display_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_alumni_story_value']['group'] = 1;
-  /* Filter criterion: Field: Program (field_program_single) */
-  $handler->display->display_options['filters']['field_program_single_tid']['id'] = 'field_program_single_tid';
-  $handler->display->display_options['filters']['field_program_single_tid']['table'] = 'field_data_field_program_single';
-  $handler->display->display_options['filters']['field_program_single_tid']['field'] = 'field_program_single_tid';
-  $handler->display->display_options['filters']['field_program_single_tid']['value'] = array(
+  /* Filter criterion: Content: Program (field_program_unlimited) */
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['id'] = 'field_program_unlimited_tid';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['table'] = 'field_data_field_program_unlimited';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['field'] = 'field_program_unlimited_tid';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['value'] = array(
     10881 => '10881',
     10887 => '10887',
     10886 => '10886',
     10891 => '10891',
     27331 => '27331',
   );
-  $handler->display->display_options['filters']['field_program_single_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_program_single_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_program_single_tid']['vocabulary'] = 'program';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['vocabulary'] = 'program';
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 

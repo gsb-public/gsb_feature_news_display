@@ -1771,6 +1771,7 @@ function gsb_feature_news_display_views_default_views() {
     186 => 0,
   );
   $handler->display->display_options['filters']['field_part_of_rethink_value']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['pane_title'] = 'All Stories: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;

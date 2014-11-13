@@ -237,6 +237,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
+  $handler->display->display_options['pane_title'] = 'Announcements';
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
@@ -1668,7 +1669,7 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
-  /* Filter criterion: Field: Program (field_program_single) */
+  /* Filter criterion: Fieldable panel pane: Program (field_program_single) */
   $handler->display->display_options['filters']['field_program_single_tid']['id'] = 'field_program_single_tid';
   $handler->display->display_options['filters']['field_program_single_tid']['table'] = 'field_data_field_program_single';
   $handler->display->display_options['filters']['field_program_single_tid']['field'] = 'field_program_single_tid';
@@ -1993,7 +1994,7 @@ function gsb_feature_news_display_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_alumni_story_value']['group'] = 1;
-  /* Filter criterion: Field: Program (field_program_single) */
+  /* Filter criterion: Fieldable panel pane: Program (field_program_single) */
   $handler->display->display_options['filters']['field_program_single_tid']['id'] = 'field_program_single_tid';
   $handler->display->display_options['filters']['field_program_single_tid']['table'] = 'field_data_field_program_single';
   $handler->display->display_options['filters']['field_program_single_tid']['field'] = 'field_program_single_tid';

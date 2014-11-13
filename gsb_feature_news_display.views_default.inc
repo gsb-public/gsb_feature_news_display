@@ -667,6 +667,7 @@ function gsb_feature_news_display_views_default_views() {
 
   /* Display: Listing */
   $handler = $view->new_display('panel_pane', 'Listing', 'in_the_media_listing');
+  $handler->display->display_options['pane_title'] = 'Offsite Stories';
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['gsb_in_the_media_listing'] = $view;

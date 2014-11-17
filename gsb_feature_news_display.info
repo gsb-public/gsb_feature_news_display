@@ -1,7 +1,7 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = 7.x-4.02
+version = release-5.0-dev
 project = gsb_feature_news_display
 dependencies[] = ds
 dependencies[] = entityreference
@@ -10,7 +10,7 @@ dependencies[] = gsb_feature_base_fields
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_load_more
-datestamp = 1410474137
+datestamp = 1416074448
 features[ctools][] = ds:ds:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0

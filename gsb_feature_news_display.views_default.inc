@@ -238,7 +238,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
   $handler->display->display_options['pane_title'] = 'Announcements';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
   /* Display: Homepage */
@@ -528,7 +528,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['vocabulary'] = 'academic_area';
   $handler->display->display_options['pane_title'] = 'Idea Stories (Faculty)';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
@@ -2012,7 +2012,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_unlimited_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_unlimited_tid']['vocabulary'] = 'program';
   $handler->display->display_options['pane_title'] = 'Stories (Alumni)';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
   /* Display: Giving Stories Listing */
@@ -2133,7 +2133,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
   $handler->display->display_options['pane_title'] = 'Stories (Giving)';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['stories'] = $view;
 

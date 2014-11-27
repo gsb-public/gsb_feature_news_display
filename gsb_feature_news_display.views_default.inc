@@ -1773,7 +1773,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_region_of_interest_tid']['vocabulary'] = 'region_interest';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['hierarchy'] = 1;
   $handler->display->display_options['pane_title'] = 'All Stories: Multiple Criteria';
-  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
+  $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';

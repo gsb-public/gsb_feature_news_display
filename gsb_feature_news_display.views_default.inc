@@ -59,7 +59,7 @@ function gsb_feature_news_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Media Format */
+  /* Field: Field: Media Format */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
@@ -710,7 +710,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['ui_name'] = 'Faculty Name';
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['label'] = 'Faculty Name';
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['required'] = TRUE;
-  /* Field: Content: Media Format */
+  /* Field: Field: Media Format */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
@@ -996,7 +996,7 @@ function gsb_feature_news_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Media Format */
+  /* Field: Field: Media Format */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';

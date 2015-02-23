@@ -20,8 +20,7 @@ function gsb_feature_news_display_ds_custom_fields_info() {
   );
   $ds_field->ui_limit = 'announcement|teaser
 school_story|teaser
-offsite_school_story|teaser
-';
+offsite_school_story|teaser';
   $ds_field->properties = array(
     'code' => array(
       'value' => '<h2 class="insights-label school-news">School News</h2>',

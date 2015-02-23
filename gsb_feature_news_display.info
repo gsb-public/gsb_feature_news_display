@@ -1,7 +1,7 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = release-5.0-dev
+version = 7.x-5.03
 project = gsb_feature_news_display
 dependencies[] = ds
 dependencies[] = entityreference

@@ -123,7 +123,7 @@ function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
  *  - Alter News by Criteria content pane title to be linked to a custom URL.
  */
 function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $args, $context) {
-  if ($content->subtype == 'news_by_criteria-panel_pane_1') {
+  if ($content && $content->subtype == 'news_by_criteria-panel_pane_1') {
     if (!empty($pane->configuration['exposed']['title_link'])) {
       $content->title = l($content->title, $pane->configuration['exposed']['title_link']);
     }

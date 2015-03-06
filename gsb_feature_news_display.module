@@ -94,6 +94,23 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
       );
       $form['exposed'] = array_merge($title_link_exposed, $form['exposed']);  
       
+      // change the display order of the exposed filter fields to the following:
+      $ordered_filters = array(
+        'filter-type',
+        'filter-field_academic_area_unlimited_tid',
+        'filter-field_business_insight_topic_tid',
+        'filter-field_region_of_interest_tid',
+        'filter-field_tag_tid',
+        'filter-field_centers_research_programs_tid',
+        'filter-field_program_unlimited_tid',
+        'filter-field_part_of_rethink_value'
+      );
+      foreach($ordered_filters as $filter) {
+        $temp = $form['exposed'][$filter];
+        unset($form['exposed'][$filter]);
+        $form['exposed'][$filter] = $temp;
+      }      
+      
       //$form['#validate'][] = 'gsb_news_by_criteria_pane_config_validate';
       $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
     }

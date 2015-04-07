@@ -541,8 +541,10 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['exposed_form_overrides'] = array(
-    'field_search_field_value' => 'pane_and_exposed',
-    'field_academic_area_unlimited_tid' => '',
+    'filters' => array(
+      'field_search_field_value' => 'pane_and_exposed',
+      'field_academic_area_unlimited_tid' => '',
+    ),
   );
   $export['gsb_faculty_insights_listing'] = $view;
 

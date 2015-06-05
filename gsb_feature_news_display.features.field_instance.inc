@@ -10,7 +10,8 @@
 function gsb_feature_news_display_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'fieldable_panels_pane-story_list_by_title-field_link_single'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-story_list_by_title-field_link_single'
   $field_instances['fieldable_panels_pane-story_list_by_title-field_link_single'] = array(
     'bundle' => 'story_list_by_title',
     'custom_add_another' => '',
@@ -75,7 +76,8 @@ function gsb_feature_news_display_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-story_list_by_title-field_story_title_ref'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-story_list_by_title-field_story_title_ref'
   $field_instances['fieldable_panels_pane-story_list_by_title-field_story_title_ref'] = array(
     'bundle' => 'story_list_by_title',
     'custom_add_another' => '',

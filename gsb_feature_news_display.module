@@ -102,6 +102,7 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
         'filter-field_region_of_interest_tid',
         'filter-field_tag_tid',
         'filter-field_centers_research_programs_tid',
+        'filter-field_icon_value',
         'filter-field_program_unlimited_tid',
         'filter-field_part_of_rethink_value'
       );

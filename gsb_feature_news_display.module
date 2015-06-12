@@ -51,7 +51,6 @@ function gsb_feature_news_display_node_view($node, $view_mode, $langcode) {
  * Implements hook_form_alter().
  */
 function gsb_feature_news_display_form_alter(&$form, &$form_state) {
-
   if ($form['#form_id'] == 'gsb_feature_idea_story_display_config_top_stories') {
     $form['gsb_media_inquiries_text'] = array(
       '#type' => 'textarea',
@@ -59,80 +58,73 @@ function gsb_feature_news_display_form_alter(&$form, &$form_state) {
       '#default_value' => variable_get('gsb_media_inquiries_text'),
       '#weight' => -9,
     );
-
     $form['#submit'][] = 'gsb_feature_news_display_settings_form_submit';
-  }
-
-  // Alter News by Criteria pane config form to include link field for title.
-  if ($form['#form_id'] == 'views_content_views_panes_content_type_edit_form') {
-
-    if ($form_state['view']->name == 'gsb_faculty_insights_listing' && $form_state['view']->current_display == 'faculty_insights_listing') {
-      $form['exposed']['filter-field_search_field_value']['#access'] = FALSE;
-    }
-
-    if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
-
-      /*
-      // set the nids argument field into the exposed portion of the config form
-      $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
-      $form['exposed']['arguments'] = $form['arguments'];
-      $form['exposed']['arguments']['#weight'] = -98;
-      $form['arguments']['#access'] = FALSE;
-      */
-      
-      // set the required * for the Type field       
-      $type_title = $form['exposed']['filter-type']['#title'];
-      $form['exposed']['filter-type']['#title'] = $type_title . 
-        ' <span class="form-required" title="' . t('This field is required.') . '">*</span>';
-
-      $conf = $form_state['conf'];
-      $title_link_exposed = array();
-      $title_link_exposed['title_link'] = array(
-        '#title' => t('Title link'),
-        '#type' => 'textfield',
-        '#default_value' => !empty($conf['exposed']['title_link']) ? $conf['exposed']['title_link'] : '',
-      );
-      $form['exposed'] = array_merge($title_link_exposed, $form['exposed']);  
-      
-      // change the display order of the exposed filter fields to the following:
-      $ordered_filters = array(
-        'filter-type',
-        'filter-field_academic_area_unlimited_tid',
-        'filter-field_business_insight_topic_tid',
-        'filter-field_region_of_interest_tid',
-        'filter-field_tag_tid',
-        'filter-field_centers_research_programs_tid',
-        'filter-field_program_unlimited_tid',
-        'filter-field_part_of_rethink_value'
-      );
-      foreach($ordered_filters as $filter) {
-        $temp = $form['exposed'][$filter];
-        unset($form['exposed'][$filter]);
-        $form['exposed'][$filter] = $temp;
-      }      
-      
-      //$form['#validate'][] = 'gsb_news_by_criteria_pane_config_validate';
-      $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
-    }
   }
 }
 
 /**
- * Validate handler for views_content_views_panes_content_type_edit_form.
- *  - Stores the arguments nid field values in pane config.
- */
-/*
-function gsb_news_by_criteria_pane_config_validate(&$form, &$form_state) {
-  $form_state['values']['arguments']['nid'] = $form_state['values']['exposed']['arguments']['nid'];
+  * Implements hook_form_FORM_ID_alter().
+  */
+function gsb_feature_news_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state) {
+
+  if ($form_state['view']->name == 'gsb_faculty_insights_listing' && $form_state['view']->current_display == 'faculty_insights_listing') {
+    $form['exposed']['filter-field_search_field_value']['#access'] = FALSE;
+  }
+
+  if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
+
+    $conf = $form_state['conf'];
+
+    $title_link_default_value = '';
+    if (!empty($conf['title_link'])) {
+      $title_link_default_value = $conf['title_link'];
+    }
+    else if (!empty($conf['exposed']['title_link'])) {
+      $title_link_default_value = $conf['exposed']['title_link'];
+    }
+
+    $item['title_link'] = array(
+      '#title' => t('URL'),
+      '#type' => 'textfield',
+      '#weight' => -99,
+      '#default_value' => $title_link_default_value,
+    );
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+
+    // set the required * for the Type field
+    $type_title = $form['exposed']['filter-type']['#title'];
+    $form['exposed']['filter-type']['#title'] = $type_title .
+      ' <span class="form-required" title="' . t('This field is required.') . '">*</span>';
+
+    // change the display order of the exposed filter fields to the following:
+    $ordered_filters = array(
+      'filter-type',
+      'filter-field_academic_area_unlimited_tid',
+      'filter-field_business_insight_topic_tid',
+      'filter-field_region_of_interest_tid',
+      'filter-field_tag_tid',
+      'filter-field_centers_research_programs_tid',
+      'filter-field_program_unlimited_tid',
+      'filter-field_part_of_rethink_value'
+    );
+    foreach($ordered_filters as $filter) {
+      $temp = $form['exposed'][$filter];
+      unset($form['exposed'][$filter]);
+      $form['exposed'][$filter] = $temp;
+    }
+
+    $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
+  }
 }
-*/
 
 /**
  * Submit handler for views_content_views_panes_content_type_edit_form.
  *  - Save title link field in pane config.
  */
 function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
-  $form_state['conf']['exposed']['title_link'] = $form_state['values']['exposed']['title_link'];
+  // unset the older value which was being kept in the 'exposed' part of the form
+  unset($form_state['conf']['exposed']['title_link']);
+  $form_state['conf']['title_link'] = $form_state['values']['title_link'];
 }
 
 /**
@@ -141,8 +133,8 @@ function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
  */
 function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $args, $context) {
   if ($content && $content->subtype == 'news_by_criteria-panel_pane_1') {
-    if (!empty($pane->configuration['exposed']['title_link'])) {
-      $content->title = l($content->title, $pane->configuration['exposed']['title_link']);
+    if (!empty($pane->configuration['title_link'])) {
+      $content->title = l($content->title, $pane->configuration['title_link']);
     }
   }
 }

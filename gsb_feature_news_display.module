@@ -89,7 +89,7 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
       '#weight' => -99,
       '#default_value' => $title_link_default_value,
     );
-    $form = gsb_misc_fixes_associative_insert($form, 'override_title', $item);
+    $form = gsb_misc_fixes_associative_insert($form, 'override_title_text', $item);
 
     // set the required * for the Type field
     $type_title = $form['exposed']['filter-type']['#title'];

@@ -72,7 +72,17 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
   }
 
   if ($form_state['view']->name == 'news_by_criteria' && $form_state['view']->current_display == 'panel_pane_1') {
+    //Hide all the display modes except compact and expanded
+    if ($form_state['pane']->subtype == 'news_by_criteria-panel_pane_1') {
+      $view_modes = $form['view_mode']['#options'];
+      foreach ($view_modes as $key => $value) {
+        if ($key !== 'compact' AND $key !== 'expanded') {
+          unset($form['view_mode']['#options'][$key]);
 
+        }
+
+      }
+    }
     $conf = $form_state['conf'];
 
     $title_link_default_value = '';
@@ -115,6 +125,7 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
     }
 
     $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
+
   }
 }
 

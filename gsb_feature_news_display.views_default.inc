@@ -1465,7 +1465,7 @@ function gsb_feature_news_display_views_default_views() {
     176 => 0,
   );
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
-  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
+  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
@@ -1836,6 +1836,8 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['set_view_mode'] = 'set_view_mode';
+  $handler->display->display_options['allow']['set_style_plugin'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
   $handler->display->display_options['allow']['offset'] = 0;
   $handler->display->display_options['allow']['link_to_view'] = 0;
@@ -1846,13 +1848,17 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 'fields_override';
   $handler->display->display_options['exposed_form_overrides'] = array(
-    'type' => '',
-    'field_tag_tid' => '',
-    'field_academic_area_unlimited_tid' => '',
-    'field_business_insight_topic_tid' => '',
-    'field_region_of_interest_tid' => '',
-    'field_centers_research_programs_tid' => '',
-    'field_program_single_tid' => '',
+    'filters' => array(
+      'type' => '',
+      'field_tag_tid' => '',
+      'field_centers_research_programs_tid' => '',
+      'field_icon_value' => '',
+      'field_program_unlimited_tid' => '',
+      'field_part_of_rethink_value' => '',
+      'field_academic_area_unlimited_tid' => '',
+      'field_business_insight_topic_tid' => '',
+      'field_region_of_interest_tid' => '',
+    ),
   );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(

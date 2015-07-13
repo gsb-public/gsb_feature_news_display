@@ -88,7 +88,7 @@ function gsb_feature_news_display_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
+        'module' => 'gsb_feature_existing_node_list_fpp',
         'settings' => array(
           'conditions' => array(),
           'links' => 1,

@@ -1,12 +1,13 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = 5.04
+version = 7.x-5.06
 project = gsb_feature_news_display
 dependencies[] = ds
 dependencies[] = entityreference
 dependencies[] = eva
 dependencies[] = gsb_feature_base_fields
+dependencies[] = gsb_feature_existing_node_list_fpp
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_load_more

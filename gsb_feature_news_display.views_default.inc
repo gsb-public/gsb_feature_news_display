@@ -527,6 +527,7 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['vocabulary'] = 'academic_area';
+  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['error_message'] = FALSE;
   $handler->display->display_options['pane_title'] = 'Idea Stories (Faculty)';
   $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -1459,6 +1460,7 @@ function gsb_feature_news_display_views_default_views() {
     176 => 0,
   );
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
+  $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
@@ -1510,6 +1512,7 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['error_message'] = FALSE;
   /* Filter criterion: Field: Media Format (field_icon) */
   $handler->display->display_options['filters']['field_icon_value']['id'] = 'field_icon_value';
   $handler->display->display_options['filters']['field_icon_value']['table'] = 'field_data_field_icon';
@@ -1620,6 +1623,7 @@ function gsb_feature_news_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_program_unlimited_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_unlimited_tid']['vocabulary'] = 'program';
+  $handler->display->display_options['filters']['field_program_unlimited_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Was this promoted in Re:Think? (field_part_of_rethink) */
   $handler->display->display_options['filters']['field_part_of_rethink_value']['id'] = 'field_part_of_rethink_value';
   $handler->display->display_options['filters']['field_part_of_rethink_value']['table'] = 'field_data_field_part_of_rethink';
@@ -1773,6 +1777,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['vocabulary'] = 'business_insight_topic';
+  $handler->display->display_options['filters']['field_business_insight_topic_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Region of Interest (field_region_of_interest) */
   $handler->display->display_options['filters']['field_region_of_interest_tid']['id'] = 'field_region_of_interest_tid';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['table'] = 'field_data_field_region_of_interest';
@@ -1826,6 +1831,7 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['field_region_of_interest_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['vocabulary'] = 'region_interest';
   $handler->display->display_options['filters']['field_region_of_interest_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_region_of_interest_tid']['error_message'] = FALSE;
   $handler->display->display_options['pane_title'] = 'All Stories: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';

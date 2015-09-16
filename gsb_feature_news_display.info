@@ -1,10 +1,8 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = 7.x-5.07
+version = 7.x-5.09
 project = gsb_feature_news_display
-dependencies[] = ds
-dependencies[] = entity
 dependencies[] = eva
 dependencies[] = views_content
 dependencies[] = views_load_more
@@ -33,3 +31,5 @@ features_exclude[dependencies][link] = link
 features_exclude[dependencies][strongarm] = strongarm
 features_exclude[dependencies][entityreference] = entityreference
 features_exclude[dependencies][views] = views
+features_exclude[dependencies][ds] = ds
+features_exclude[dependencies][entity] = entity

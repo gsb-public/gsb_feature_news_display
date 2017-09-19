@@ -433,7 +433,6 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'idea_story' => 'idea_story',
-    'offsite_idea_story' => 'offsite_idea_story',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Search field (field_search_field) */
@@ -1914,8 +1913,6 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'announcement' => 'announcement',
     'idea_story' => 'idea_story',
-    'offsite_idea_story' => 'offsite_idea_story',
-    'offsite_school_story' => 'offsite_school_story',
     'school_story' => 'school_story',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
@@ -2050,8 +2047,6 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'announcement' => 'announcement',
     'idea_story' => 'idea_story',
-    'offsite_idea_story' => 'offsite_idea_story',
-    'offsite_school_story' => 'offsite_school_story',
     'school_story' => 'school_story',
   );
   /* Filter criterion: Content: Keywords (field_tag) */

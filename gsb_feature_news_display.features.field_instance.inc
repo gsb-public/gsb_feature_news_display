@@ -11,7 +11,7 @@ function gsb_feature_news_display_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-story_list_by_title-field_link_single'
+  // 'fieldable_panels_pane-story_list_by_title-field_link_single'.
   $field_instances['fieldable_panels_pane-story_list_by_title-field_link_single'] = array(
     'bundle' => 'story_list_by_title',
     'custom_add_another' => '',
@@ -77,7 +77,7 @@ function gsb_feature_news_display_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'fieldable_panels_pane-story_list_by_title-field_story_title_ref'
+  // 'fieldable_panels_pane-story_list_by_title-field_story_title_ref'.
   $field_instances['fieldable_panels_pane-story_list_by_title-field_story_title_ref'] = array(
     'bundle' => 'story_list_by_title',
     'custom_add_another' => '',
@@ -92,6 +92,7 @@ function gsb_feature_news_display_field_default_field_instances() {
         'settings' => array(
           'conditions' => array(),
           'links' => 1,
+          'use_content_language' => TRUE,
           'view_mode' => 'news_listing',
         ),
         'type' => 'entityreference_entity_view',

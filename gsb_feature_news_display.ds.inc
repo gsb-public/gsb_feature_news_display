@@ -23,7 +23,7 @@ school_story|teaser
 offsite_school_story|teaser';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<h2 class="insights-label school-news">School News</h2>',
+      'value' => '<h2 class="insights-label school-news">In the Media</h2>',
       'format' => 'full_html',
     ),
     'use_token' => 0,

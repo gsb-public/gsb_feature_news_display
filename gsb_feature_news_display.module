@@ -78,29 +78,32 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
       foreach ($view_modes as $key => $value) {
         if ($key !== 'compact' AND $key !== 'expanded') {
           unset($form['view_mode']['#options'][$key]);
-
         }
-
       }
+      $form['CTA'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('CTA'),
+      );
+      $form['CTA']['cta_title'] = array(
+        '#title' => t('Text'),
+        '#type' => 'textfield',
+        '#description' => 'Enter an action statement.',
+        '#weight' => 1,
+        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
+      );
+      $form['CTA']['cta_url'] = array(
+        '#title' => t('URL'),
+        '#type' => 'textfield',
+        '#weight' => 2,
+        '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+      );
     }
     $conf = $form_state['conf'];
 
-    $title_link_default_value = '';
-    if (!empty($conf['title_link'])) {
-      $title_link_default_value = $conf['title_link'];
-    }
-    else if (!empty($conf['exposed']['title_link'])) {
-      $title_link_default_value = $conf['exposed']['title_link'];
-    }
     $form['exposed']['arguments']['#weight'] = 90;
     $form['comments']['#access'] = FALSE;
     $form['links']['#access'] = FALSE;
-    $item['title_link'] = array(
-      '#title' => t('URL'),
-      '#type' => 'textfield',
-      '#weight' => -99,
-      '#default_value' => $title_link_default_value,
-    );
+
     $form['override_title']['#weight'] = -99;
     $form['items_per_page']['#weight'] = -98;
     $form['view_mode']['#weight'] = -98;
@@ -128,9 +131,21 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
       unset($form['exposed'][$filter]);
       $form['exposed'][$filter] = $temp;
     }
-
+    $form['#validate'][] = 'gsb_news_by_criteria_pane_config_validate';
     $form['#submit'][] = 'gsb_news_by_criteria_pane_config_submit';
 
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_validate().
+ */
+function gsb_news_by_criteria_pane_config_validate($form, &$form_state) {
+  if ($form_state['values']['cta_title'] != '' && $form_state['values']['cta_url'] == '') {
+    form_set_error('cta_url', t('CTA Url is required.'));
+  }
+  if ($form_state['values']['cta_title'] == '' && $form_state['values']['cta_url'] != '') {
+    form_set_error('cta_title', t('CTA title is required.'));
   }
 }
 
@@ -139,9 +154,8 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
  *  - Save title link field in pane config.
  */
 function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
-  // unset the older value which was being kept in the 'exposed' part of the form
-  unset($form_state['conf']['exposed']['title_link']);
-  $form_state['conf']['title_link'] = $form_state['values']['title_link'];
+  $form_state['conf']['cta_url'] = $form_state['values']['cta_url'];
+  $form_state['conf']['cta_title'] = $form_state['values']['cta_title'];
 }
 
 /**
@@ -150,11 +164,10 @@ function gsb_news_by_criteria_pane_config_submit($form, &$form_state) {
  */
 function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $args, $context) {
   if ($content && $content->subtype == 'news_by_criteria-panel_pane_1') {
-    if (!empty($pane->configuration['title_link'])) {
-      $url_parts = drupal_parse_url($pane->configuration['title_link']);
-      // Don't sanitize the title. It will get sanitized later.
+    if (!empty($pane->configuration['cta_title'])) {
+      $url_parts = drupal_parse_url($pane->configuration['cta_url']);
       $url_parts['html'] = TRUE;
-      $content->title = l($content->title, $url_parts['path'], $url_parts);
+      $content->content['#markup'] .= '<div class="list-cta">' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
     }
   }
 }

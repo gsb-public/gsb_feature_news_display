@@ -80,6 +80,8 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
           unset($form['view_mode']['#options'][$key]);
         }
       }
+      $conf = $form_state['conf'];
+
       $form['CTA'] = array(
         '#type' => 'fieldset',
         '#title' => t('CTA'),
@@ -98,7 +100,6 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
         '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
       );
     }
-    $conf = $form_state['conf'];
 
     $form['exposed']['arguments']['#weight'] = 90;
     $form['comments']['#access'] = FALSE;

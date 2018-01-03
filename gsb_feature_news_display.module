@@ -125,7 +125,6 @@ function gsb_feature_news_display_form_views_content_views_panes_content_type_ed
       'filter-field_tag_tid',
       'filter-field_centers_research_programs_tid',
       'filter-field_program_unlimited_tid',
-      'filter-field_part_of_rethink_value'
     );
     foreach($ordered_filters as $filter) {
       $temp = $form['exposed'][$filter];

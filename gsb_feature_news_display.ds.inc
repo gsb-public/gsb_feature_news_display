@@ -19,8 +19,25 @@ function gsb_feature_news_display_ds_custom_fields_info() {
     'node' => 'node',
   );
   $ds_field->ui_limit = 'announcement|teaser
-school_story|teaser
-offsite_school_story|teaser';
+school_story|teaser';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<h2 class="insights-label school-news">Featured Story</h2>',
+      'format' => 'full_html',
+    ),
+    'use_token' => 0,
+  );
+  $export['insights_label_school_news'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'insights_media_mention_label';
+  $ds_field->label = 'Insights Media Mention label';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'offsite_school_story|teaser';
   $ds_field->properties = array(
     'code' => array(
       'value' => '<h2 class="insights-label school-news">In the Media</h2>',
@@ -28,7 +45,7 @@ offsite_school_story|teaser';
     ),
     'use_token' => 0,
   );
-  $export['insights_label_school_news'] = $ds_field;
+  $export['insights_media_mention_label'] = $ds_field;
 
   return $export;
 }

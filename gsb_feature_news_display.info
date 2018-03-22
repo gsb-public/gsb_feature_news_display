@@ -1,7 +1,7 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = 7.x-5.09
+version = 7.x-5.10
 project = gsb_feature_news_display
 dependencies[] = eva
 dependencies[] = views_content
@@ -11,6 +11,7 @@ features[ctools][] = ds:ds:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[ds_fields][] = insights_label_school_news
+features[ds_fields][] = insights_media_mention_label
 features[ds_view_modes][] = news_listing
 features[features_api][] = api:2
 features[field_instance][] = fieldable_panels_pane-story_list_by_title-field_link_single

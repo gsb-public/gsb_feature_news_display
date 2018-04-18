@@ -280,6 +280,17 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'idea_story_related';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+
+  /* Display: Homepage School News */
+  $handler = $view->new_display('panel_pane', 'Homepage School News', 'panel_pane_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['pane_title'] = 'News: Homepage Two Across';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $export['gsb_announcement_school_listing'] = $view;
 
   $view = new view();

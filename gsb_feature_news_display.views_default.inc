@@ -283,6 +283,8 @@ function gsb_feature_news_display_views_default_views() {
 
   /* Display: Homepage School News */
   $handler = $view->new_display('panel_pane', 'Homepage School News', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'School News';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
@@ -301,8 +303,34 @@ function gsb_feature_news_display_views_default_views() {
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'homepage_school_news';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'announcement' => 'announcement',
+    'school_story' => 'school_story',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Exclude this story from the home page (field_exclude_story_homepage) */
+  $handler->display->display_options['filters']['field_exclude_story_homepage_value']['id'] = 'field_exclude_story_homepage_value';
+  $handler->display->display_options['filters']['field_exclude_story_homepage_value']['table'] = 'field_data_field_exclude_story_homepage';
+  $handler->display->display_options['filters']['field_exclude_story_homepage_value']['field'] = 'field_exclude_story_homepage_value';
+  $handler->display->display_options['filters']['field_exclude_story_homepage_value']['value'] = array(
+    0 => '0',
+  );
+  $handler->display->display_options['filters']['field_exclude_story_homepage_value']['group'] = 1;
   $handler->display->display_options['pane_title'] = 'News: Homepage Two Across';
-  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
+  $handler->display->display_options['pane_category']['name'] = 'Homepage Elements';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['gsb_announcement_school_listing'] = $view;
 

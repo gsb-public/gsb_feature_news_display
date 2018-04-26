@@ -18,7 +18,7 @@ function gsb_feature_news_display_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'homepage_school_news';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '3',
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -81,7 +81,7 @@ function gsb_feature_news_display_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'homepage_school_news';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '3',
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -208,13 +208,15 @@ function gsb_feature_news_display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_image_key_image',
-        1 => 'field_date',
-        2 => 'field_icon',
-        3 => 'title',
+        1 => 'group_news_wrapper',
+        2 => 'field_date',
+        3 => 'field_icon',
+        4 => 'title',
       ),
     ),
     'fields' => array(
       'field_image_key_image' => 'ds_content',
+      'group_news_wrapper' => 'ds_content',
       'field_date' => 'ds_content',
       'field_icon' => 'ds_content',
       'title' => 'ds_content',
@@ -243,13 +245,15 @@ function gsb_feature_news_display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_image_key_image',
-        1 => 'field_date',
-        2 => 'field_icon',
-        3 => 'title',
+        1 => 'group_news_wrapper',
+        2 => 'field_date',
+        3 => 'field_icon',
+        4 => 'title',
       ),
     ),
     'fields' => array(
       'field_image_key_image' => 'ds_content',
+      'group_news_wrapper' => 'ds_content',
       'field_date' => 'ds_content',
       'field_icon' => 'ds_content',
       'title' => 'ds_content',

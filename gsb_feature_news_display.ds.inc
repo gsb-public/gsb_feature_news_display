@@ -17,6 +17,11 @@ function gsb_feature_news_display_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'announcement';
   $ds_fieldsetting->view_mode = 'homepage_school_news';
   $ds_fieldsetting->settings = array(
+    'media_icon' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'title' => array(
       'weight' => '4',
       'label' => 'hidden',
@@ -50,13 +55,6 @@ function gsb_feature_news_display_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_icon' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-        ),
-      ),
-    ),
     'field_image_key_image' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -80,8 +78,13 @@ function gsb_feature_news_display_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'school_story';
   $ds_fieldsetting->view_mode = 'homepage_school_news';
   $ds_fieldsetting->settings = array(
+    'media_icon' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'title' => array(
-      'weight' => '4',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -101,19 +104,6 @@ function gsb_feature_news_display_ds_field_settings_info() {
       ),
     ),
     'field_date' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'ow' => TRUE,
-          'ow-el' => 'div',
-          'ow-cl' => '',
-          'ow-def-cl' => TRUE,
-          'ow-at' => '',
-          'ow-def-at' => FALSE,
-        ),
-      ),
-    ),
-    'field_icon' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -210,7 +200,7 @@ function gsb_feature_news_display_ds_layout_settings_info() {
         0 => 'field_image_key_image',
         1 => 'group_news_wrapper',
         2 => 'field_date',
-        3 => 'field_icon',
+        3 => 'media_icon',
         4 => 'title',
       ),
     ),
@@ -218,7 +208,7 @@ function gsb_feature_news_display_ds_layout_settings_info() {
       'field_image_key_image' => 'ds_content',
       'group_news_wrapper' => 'ds_content',
       'field_date' => 'ds_content',
-      'field_icon' => 'ds_content',
+      'media_icon' => 'ds_content',
       'title' => 'ds_content',
     ),
     'classes' => array(),
@@ -247,7 +237,7 @@ function gsb_feature_news_display_ds_layout_settings_info() {
         0 => 'field_image_key_image',
         1 => 'group_news_wrapper',
         2 => 'field_date',
-        3 => 'field_icon',
+        3 => 'media_icon',
         4 => 'title',
       ),
     ),
@@ -255,7 +245,7 @@ function gsb_feature_news_display_ds_layout_settings_info() {
       'field_image_key_image' => 'ds_content',
       'group_news_wrapper' => 'ds_content',
       'field_date' => 'ds_content',
-      'field_icon' => 'ds_content',
+      'media_icon' => 'ds_content',
       'title' => 'ds_content',
     ),
     'classes' => array(),

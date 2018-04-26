@@ -1,7 +1,7 @@
 name = GSB Feature News Display
 core = 7.x
 package = GSB
-version = 7.x-5.18
+version = 7.x-6.52
 project = gsb_feature_news_display
 dependencies[] = eva
 dependencies[] = views_content

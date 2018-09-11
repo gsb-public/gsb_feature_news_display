@@ -89,7 +89,7 @@ function gsb_feature_news_display_ds_field_settings_info() {
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '1',
-        'wrapper' => 'h3',
+        'wrapper' => 'span',
         'class' => '',
         'ft' => array(
           'func' => 'theme_ds_field_expert',

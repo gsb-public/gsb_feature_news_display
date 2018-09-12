@@ -170,6 +170,10 @@ function gsb_feature_news_display_panels_pane_content_alter($content, $pane, $ar
       $content->content['#markup'] .= '<div class="list-cta">' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
     }
   }
+  if($content && $content->type == 'views_panes' && ($content->subtype == 'gsb_announcement_school_listing-panel_pane_1' || $content->subtype == 'gsb_insights_stanford_business-panel_pane_1') ) {
+    $content->title_heading = 'div';
+    $content->title = '<span>' . $content->title . '</span>';
+  }
 }
 
 /**
